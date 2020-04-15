@@ -8,7 +8,7 @@ variable "ProjectPrefix" {
   type        = string
   default     = "terraform-gcp-bigip-"
 }
-variable "gcpServiceAccounts" {
+variable "serviceAccounts" {
   type = "map"
   default = {
       storage = "default-compute@developer.gserviceaccount.com"
