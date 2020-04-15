@@ -3,7 +3,7 @@ variable "gceSshPubKey" {
   type        = string
 }
 
-variable "ProjectPrefix" {
+variable "projectPrefix" {
   description = "Prefix for resources created by this module"
   type        = string
   default     = "terraform-gcp-bigip-"

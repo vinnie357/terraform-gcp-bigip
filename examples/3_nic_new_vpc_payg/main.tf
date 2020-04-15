@@ -139,7 +139,7 @@ module "bigip" {
   mgmtSubnet = "${google_compute_subnetwork.vpc_network_mgmt_sub}"
   intSubnet = "${google_compute_subnetwork.vpc_network_int_sub}"
   extSubnet = "${google_compute_subnetwork.vpc_network_ext_sub}"
-  serviceAccounts = "${var.gcpServiceAccounts}"
+  serviceAccounts = "${var.serviceAccounts}"
   instanceCount = 1
   customImage = ""
   customUserData = ""
