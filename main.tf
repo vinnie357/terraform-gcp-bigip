@@ -6,7 +6,7 @@ resource "random_password" "password" {
 }
 # Setup Onboarding scripts
 data "template_file" "vm_onboard" {
-  template = "${file("${path.root}f5_onboard.tmpl")}"
+  template = "${file("f5_onboard.tmpl")}"
 
   vars = {
     uname        	      = "${var.adminAccountName}"
