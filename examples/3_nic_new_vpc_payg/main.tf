@@ -131,7 +131,7 @@ module "bigip" {
   projectPrefix = "${var.projectPrefix}"
   buildSuffix = "-${random_pet.buildSuffix.id}"
   adminSrcAddr = "192.168.100.100/32"
-  adminPass = "${random_password.password}"
+  adminPass = "${random_password.password.result}"
   adminAccountName = "zadmin"
   mgmtVpc = "${google_compute_network.vpc_network_mgmt}"
   intVpc = "${google_compute_network.vpc_network_int}"
