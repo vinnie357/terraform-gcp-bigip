@@ -26,7 +26,7 @@ data "template_file" "vm_onboard" {
 }
 # bigips
 resource "google_compute_instance" "vm_instance" {
-  count            = "${var.instancecount}"
+  count            = "${var.instanceCount}"
   name             = "${var.projectPrefix}${var.name}-${count.index + 1}-instance${var.buildSuffix}"
   machine_type = "${var.bigipMachineType}"
   tags = ["allow-health-checks"]
@@ -58,7 +58,7 @@ resource "google_compute_instance" "vm_instance" {
   network_interface {
     # mgmt
     # A default network is created for all GCP projects
-    network       = "${var.mgmt_vpc.name}"
+    network       = "${var.mgmtVpc.name}"
     subnetwork = "${var.mgmtSubnet.name}"
     # network = "${google_compute_network.vpc_network.self_link}"
     access_config {
