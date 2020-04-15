@@ -50,7 +50,7 @@ variable "customUserData" {
   default = ""
 }
 # IAM
-variable "gcpServiceAccounts" {
+variable "serviceAccounts" {
   type = "map"
   default = {
       storage = "default-compute@developer.gserviceaccount.com"
