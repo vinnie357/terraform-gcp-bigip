@@ -125,7 +125,35 @@ resource "google_compute_firewall" "default-allow-internal-int" {
 
   source_ranges = ["10.0.20.0/24"]
 }
+resource "google_compute_firewall" "mgmt" {
+  name    = "${var.projectPrefix}mgmt${random_pet.buildSuffix.id}"
+  network = "${google_compute_network.vpc_network_mgmt.name}"
+  allow {
+    protocol = "icmp"
+  }
 
+  allow {
+    protocol = "tcp"
+    ports    = [ "22", "443" ]
+  }
+
+  source_ranges = ["${var.adminSrcAddr}"]
+}
+resource "google_compute_firewall" "app" {
+  name    = "${var.projectPrefix}app-vpn${random_pet.buildSuffix.id}"
+  network = "${google_compute_network.vpc_network_ext.name}"
+
+  allow {
+    protocol = "icmp"
+  }
+
+  allow {
+    protocol = "tcp"
+    ports    = [ "80", "443" ]
+  }
+
+  source_ranges = ["${var.adminSrcAddr}"]
+}
 module "bigip" {
   source = "github.com/vinnie357/terraform-gcp-bigip?ref=master"
   #====================#
@@ -134,9 +162,9 @@ module "bigip" {
   gceSshPubKey = "${var.gceSshPubKey}"
   projectPrefix = "${var.projectPrefix}"
   buildSuffix = "-${random_pet.buildSuffix.id}"
-  adminSrcAddr = "192.168.100.100/32"
+  adminSrcAddr = "${var.adminSrcAddr}"
   adminPass = "${random_password.password.result}"
-  adminAccountName = "zadmin"
+  adminAccountName = "${var.adminAccountName}"
   mgmtVpc = "${google_compute_network.vpc_network_mgmt}"
   intVpc = "${google_compute_network.vpc_network_int}"
   extVpc = "${google_compute_network.vpc_network_ext}"

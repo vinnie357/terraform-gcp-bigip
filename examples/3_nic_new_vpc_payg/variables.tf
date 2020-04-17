@@ -16,7 +16,13 @@ variable "serviceAccounts" {
       compute = "default-compute@developer.gserviceaccount.com"
     }
 }
+variable "adminSrcAddr" {
+  description = "admin source range in CIDR"
 
+}
+variable adminAccountName { 
+    description = "big-ip admin account name"
+}
 variable "GCP_PROJECT_ID" {
   description = "project ID"
 }
