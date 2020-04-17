@@ -40,11 +40,11 @@ resource "google_compute_instance" "vm_instance" {
     ssh-keys = "${var.adminAccountName}:${var.gceSshPubKey}"
     block-project-ssh-keys = true
     # this is best for a long running instance as it is only evaulated and run once, changes to the template do NOT destroy the running instance.
-    startup-script = "${data.template_file.vm_onboard.rendered}"
+    #startup-script = "${data.template_file.vm_onboard.rendered}"
     deviceId = "${count.index + 1}"
  }
  # this is best for dev, as it runs ANY time there are changes and DESTROYS the instances
-  #metadata_startup_script = "${data.template_file.vm_onboard.rendered}"
+   metadata_startup_script = "${data.template_file.vm_onboard.rendered}"
 
   network_interface {
     # external
