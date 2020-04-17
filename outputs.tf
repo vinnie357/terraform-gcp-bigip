@@ -14,3 +14,7 @@ output "private_addresses" {
     instance.name => "${instance.network_interface.*.network_ip}"
   }
 }
+
+output "mgmt_public_ip_01" { value = "${google_compute_instance.vm_instance.0.network_interface.1.access_config.0.nat_ip}" }
+
+output "mgmt_public_ip_02" { value = "${var.instanceCount >= 2 ? "${google_compute_instance.vm_instance.1.network_interface.1.access_config.0.nat_ip}" : "none"}"}
