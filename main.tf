@@ -5,8 +5,12 @@ resource "random_password" "password" {
   override_special = " #%*+,-./:=?@[]^_~"
 }
 # Setup Onboarding scripts
+data "http" "template_gcp" {
+    url = "https://raw.githubusercontent.com/vinnie357/bigip-bash-onboard-templates/master/gcp/onboard.sh"
+}
+
 data "template_file" "vm_onboard" {
-  template = "${file("${path.module}/f5_onboard.tmpl")}"
+  template = "${data.http.template_gcp.body}"
 
   vars = {
     uname        	      = "${var.adminAccountName}"
