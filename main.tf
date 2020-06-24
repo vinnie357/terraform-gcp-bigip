@@ -36,7 +36,7 @@ resource google_compute_instance vm_instance {
   tags = ["allow-health-checks"]
   boot_disk {
     initialize_params {
-      image = "${var.customImage != "" ? var.customImage : var.bigipImage}"
+      image = var.customImage != "" ? var.customImage : var.bigipImage
       size = "128"
     }
   }
@@ -44,7 +44,7 @@ resource google_compute_instance vm_instance {
     ssh-keys = "${var.adminAccountName}:${var.gceSshPubKey}"
     block-project-ssh-keys = true
     # this is best for a long running instance as it is only evaulated and run once, changes to the template do NOT destroy the running instance.
-    startup-script = "${var.customImage != "" ? var.customUserData : data.template_file.vm_onboard.rendered}"
+    startup-script = var.customImage != "" ? var.customUserData : data.template_file.vm_onboard.rendered
     deviceId = count.index + 1
  }
  # this is best for dev, as it runs ANY time there are changes and DESTROYS the instances
