@@ -1,25 +1,25 @@
 
 # device
-variable "projectPrefix" {
+variable projectPrefix {
   description = "prefix for resources"
   default = "terraform-gcp-bigip-"
 }
-variable "buildSuffix" {
+variable buildSuffix {
   description = "resource suffix"
 }
-variable "name" {
+variable name {
   description = "device name"
   default = "bigip"
 }
-variable "instanceCount" {
+variable instanceCount {
     description = "number of devices"
     default = 1
 }
-variable "bigipMachineType" {
+variable bigipMachineType {
     description = "bigip gce machine type/size"
     default = "n1-standard-8"
 }
-variable "bigipImage" {
+variable bigipImage {
  description = " bigip gce image name"
  default = "projects/f5-7626-networks-public/global/images/f5-bigip-15-0-1-1-0-0-3-payg-best-1gbps-191118"
 }
@@ -41,48 +41,48 @@ variable timezone { default = "UTC" }
 variable libsDir { default = "/config/cloud/gcp/node_modules" }
 variable onboardLog { default = "/var/log/startup-script.log" }
 # Custom image
-variable "customImage" {
+variable customImage {
   description = "custom build image name"
   default = ""
 }
-variable "customUserData" {
+variable customUserData {
   description = "custom startup script data"
   default = ""
 }
 # IAM
-variable "serviceAccounts" {
-  type = "map"
+variable serviceAccounts {
+  type = map
   default = {
       storage = "default-compute@developer.gserviceaccount.com"
       compute = "default-compute@developer.gserviceaccount.com"
     }
 }
-variable "adminSrcAddr" {
+variable adminSrcAddr {
   description = "admin source range in CIDR"
 
 }
-variable "gceSshPubKey" {
+variable gceSshPubKey {
     description = "public key for ssh access"
     default = ""
 }
 # networks
 # vpcs
-variable "extVpc" {
+variable extVpc {
   description = "name of external vpc"
 }
-variable "mgmtVpc" {
+variable mgmtVpc {
   description = "name of mgmt vpc"
 }
-variable "intVpc" {
+variable intVpc {
   description = "name of internal vpc"
 }
 # subnets
-variable "extSubnet" {
+variable extSubnet {
   description = "name of external subnet"
 }
-variable "mgmtSubnet" {
+variable mgmtSubnet {
   description = "name of management subnet"
 }
-variable "intSubnet" {
+variable intSubnet {
   description = "name of internal subnet"
 }
