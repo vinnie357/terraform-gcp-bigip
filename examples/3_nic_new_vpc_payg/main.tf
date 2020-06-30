@@ -34,7 +34,7 @@ resource google_compute_network vpc_network_mgmt {
 resource google_compute_subnetwork vpc_network_mgmt_sub {
   name          = "${var.projectPrefix}mgmt-sub-${random_pet.buildSuffix.id}"
   ip_cidr_range = "10.0.10.0/24"
-  region        = "us-east1"
+  region        = var.GCP_REGION
   network       = google_compute_network.vpc_network_mgmt.self_link
 
 }
@@ -46,7 +46,7 @@ resource google_compute_network vpc_network_int {
 resource google_compute_subnetwork vpc_network_int_sub {
   name          = "${var.projectPrefix}int-sub-${random_pet.buildSuffix.id}"
   ip_cidr_range = "10.0.20.0/24"
-  region        = "us-east1"
+  region        = var.GCP_REGION
   network       = google_compute_network.vpc_network_int.self_link
 
 }
@@ -58,7 +58,7 @@ resource google_compute_network vpc_network_ext {
 resource google_compute_subnetwork vpc_network_ext_sub {
   name          = "${var.projectPrefix}ext-sub-${random_pet.buildSuffix.id}"
   ip_cidr_range = "10.0.30.0/24"
-  region        = "us-east1"
+  region        = var.GCP_REGION
   network       = google_compute_network.vpc_network_ext.self_link
 
 }
