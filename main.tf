@@ -21,7 +21,7 @@ data template_file vm_onboard {
     as3Version            = "latest"
     tsVersion             = "latest"
     cfVersion             = "latest"
-    fastVersion           = "0.2.0"
+    fastVersion           = "latest"
     libs_dir		      = var.libsDir
     onboard_log		      = var.onboardLog
     projectPrefix         = var.projectPrefix
