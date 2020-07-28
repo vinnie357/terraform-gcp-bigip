@@ -21,7 +21,7 @@ variable bigipMachineType {
 }
 variable bigipImage {
  description = " bigip gce image name"
- default = "projects/f5-7626-networks-public/global/images/f5-bigip-15-1-0-2-0-0-9-payg-best-1gbps-200321032524"
+ default = "projects/f5-7626-networks-public/global/images/f5-bigip-15-1-0-4-0-0-6-payg-best-1gbps-200618231635"
 }
 
 # bigip stuff
