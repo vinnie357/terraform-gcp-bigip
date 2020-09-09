@@ -1,0 +1,9 @@
+# admin source address
+# ipchicken.com
+adminSourceAddress = ["192.168.2.1/32", "192.168.3.1/32", "172.18.67.12/32"]
+# admin account name
+adminAccountName = "zadmin"
+# public key for instance ssh access
+gceSshPubKey = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAA"
+# gcp project to deploy in
+gcpProjectId = "myProjectId"

@@ -172,7 +172,7 @@ module bigip {
   extSubnet        = google_compute_subnetwork.vpc_network_ext_sub
   serviceAccounts  = var.serviceAccounts
   instanceCount    = 1
-  customImage      = ""
+  customImage      = "projects/f5-7626-networks-public/global/images/f5-bigip-15-1-0-4-0-0-6-byol-all-modules-2boot-loc-00618231635"
   customUserData   = ""
   bigipMachineType = "n1-standard-8"
 }

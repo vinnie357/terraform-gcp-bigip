@@ -1,3 +1,5 @@
+# custom
+admin.auto.tfvars
 # Local .terraform directories
 **/.terraform/*
 

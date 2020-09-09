@@ -2,37 +2,37 @@
 # device
 variable projectPrefix {
   description = "prefix for resources"
-  default = "terraform-gcp-bigip-"
+  default     = "terraform-gcp-bigip-"
 }
 variable buildSuffix {
   description = "resource suffix"
 }
 variable name {
   description = "device name"
-  default = "bigip"
+  default     = "bigip"
 }
 variable instanceCount {
-    description = "number of devices"
-    default = 1
+  description = "number of devices"
+  default     = 1
 }
 variable bigipMachineType {
-    description = "bigip gce machine type/size"
-    default = "n1-standard-8"
+  description = "bigip gce machine type/size"
+  default     = "n1-standard-8"
 }
 variable bigipImage {
- description = " bigip gce image name"
- default = "projects/f5-7626-networks-public/global/images/f5-bigip-15-1-0-4-0-0-6-payg-best-1gbps-200618231635"
+  description = " bigip gce image name"
+  default     = "projects/f5-7626-networks-public/global/images/f5-bigip-15-1-0-4-0-0-6-payg-best-1gbps-200618231635"
 }
 
 # bigip stuff
-variable adminAccountName { 
-    description = "big-ip admin account name"
-    default = "admin" 
+variable adminAccountName {
+  description = "big-ip admin account name"
+  default     = "admin"
 }
-variable adminPass { 
-    description = "big-ip admin password"
-    default = ""
- }
+variable adminPass {
+  description = "big-ip admin password"
+  default     = ""
+}
 variable host1Name { default = "f5vm01" }
 variable host2Name { default = "f5vm02" }
 variable dnsServer { default = "8.8.8.8" }
@@ -43,27 +43,27 @@ variable onboardLog { default = "/var/log/startup-script.log" }
 # Custom image
 variable customImage {
   description = "custom build image name"
-  default = ""
+  default     = ""
 }
 variable customUserData {
   description = "custom startup script data"
-  default = ""
+  default     = ""
 }
 # IAM
 variable serviceAccounts {
   type = map
   default = {
-      storage = "default-compute@developer.gserviceaccount.com"
-      compute = "default-compute@developer.gserviceaccount.com"
-    }
+    storage = "default-compute@developer.gserviceaccount.com"
+    compute = "default-compute@developer.gserviceaccount.com"
+  }
 }
 variable adminSrcAddr {
   description = "admin source range in CIDR"
 
 }
 variable gceSshPubKey {
-    description = "public key for ssh access"
-    default = ""
+  description = "public key for ssh access"
+  default     = ""
 }
 # networks
 # vpcs
