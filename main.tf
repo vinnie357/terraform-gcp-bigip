@@ -14,7 +14,7 @@ data template_file vm_onboard {
 
   vars = {
     uname     = var.adminAccountName
-    upassword = "${var.adminPass != "" ? var.adminPass : random_password.password.result}"
+    upassword = var.adminPass != "" ? var.adminPass : random_password.password.result
     doVersion = "latest"
     #example version:
     #as3Version            = "3.16.0"
